@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Update</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+    <h1 class="mb-4">Link Update</h1>
+
+    <form method="post" action="{% url 'update_links' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="box1">Link 1:</label>
+            <input type="text" class="form-control" id="box1" name="box1" value="{{ links.box1|default:'' }}">
+            <button type="submit" class="btn btn-primary mt-2" name="submit_btn" value="box1">Update</button>
+        </div>
+
+        <div class="form-group">
+            <label for="box2">Link 2:</label>
+            <input type="text" class="form-control" id="box2" name="box2" value="{{ links.box2|default:'' }}">
+            <button type="submit" class="btn btn-primary mt-2" name="submit_btn" value="box2">Update</button>
+        </div>
+
+        <div class="form-group">
+            <label for="box3">Link 3:</label>
+            <input type="text" class="form-control" id="box3" name="box3" value="{{ links.box3|default:'' }}">
+            <button type="submit" class="btn btn-primary mt-2" name="submit_btn" value="box3">Update</button>
+        </div>
+
+        <div class="form-group">
+            <label for="box4">Link 4:</label>
+            <input type="text" class="form-control" id="box4" name="box4" value="{{ links.box4|default:'' }}">
+            <button type="submit" class="btn btn-primary mt-2" name="submit_btn" value="box4">Update</button>
+        </div>
+    </form>
+
+    <h2 class="mt-4">Current Links:</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Link 1:</strong> {{ links.box1|default:'No link' }}</li>
+        <li class="list-group-item"><strong>Link 2:</strong> {{ links.box2|default:'No link' }}</li>
+        <li class="list-group-item"><strong>Link 3:</strong> {{ links.box3|default:'No link' }}</li>
+        <li class="list-group-item"><strong>Link 4:</strong> {{ links.box4|default:'No link' }}</li>
+    </ul>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
